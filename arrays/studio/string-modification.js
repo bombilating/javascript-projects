@@ -1,5 +1,16 @@
 const input = require('readline-sync');
-let str = "LaunchCode";
+let str = input.question("Type Anything ");
+let amountOfLetters = input.question("How many letters would you like moved? ")
+let movingLetters;
+if (str.length < amountOfLetters){
+    movingLetters = str.slice(0,3);
+    console.log("There is not enough letters to move so only 3 will be moved by default")
+} else {
+    movingLetters = str.slice(0,amountOfLetters);
+}
+newStr = str.replace(movingLetters, "")
+newStr += movingLetters;
+console.log(`${str} is rearranged to become ${newStr}` )
 
 //1) Use string methods to remove the first three characters from the string and add them to the end.
 //Hint - define another variable to hold the new string or reassign the new string to str.
