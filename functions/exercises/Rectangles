@@ -1,0 +1,59 @@
+function makeLine(lineSize,char ="#") {
+    let line = "";
+    for(let i = 0; i < lineSize; i++) {
+        line += char;
+    }
+    return line
+}
+
+function makeSquare(squareSize,char) {
+    let square = "";
+    for(let i = 0; i < squareSize; i++) {
+        square += makeLine(squareSize,char) + "\n";
+    }
+    return square.slice(0,-1);
+}
+
+function makeRectangle(width,height,char) {
+    let rectangle = "";
+    for(let i = 0; i < height; i++) {
+        rectangle += makeLine(width,char) + "\n";
+    }
+    return rectangle.slice(0,-1);
+}
+
+function makeDownwardStairs(height,char) {
+    let stairs = "";
+    for(let i = 0; i < height; i++) {
+        stairs += makeLine(i+1,char) + "\n";
+    }
+    return stairs.slice(0,-1);
+}
+
+function makeSpaceLine(numSpaces,numChars,char) {   
+    let line = "";
+    line += makeLine(numSpaces," ");
+    line += makeLine(numChars,char)
+    line += makeLine(numSpaces," ");
+    return line
+}
+
+function makeIsoscelesTriangle(height,char) {
+    let triangle = "";
+    for(let i = 0; i < height; i++) {
+        triangle += makeSpaceLine(height-i-1, i*2+1,char) + "\n"
+    }
+    return triangle.slice(0,-1);
+}
+
+function makeDiamond(height,char) {
+    let topHalf = makeIsoscelesTriangle(height,char);
+    let bottomHalf = "";
+    for(let i = 0; i < topHalf.length; i++) {
+        bottomHalf = topHalf[i] + bottomHalf;
+    }
+    return topHalf + "\n" + bottomHalf;
+
+
+}
+console.log(makeIsoscelesTriangle(4,"5"));
