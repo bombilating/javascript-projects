@@ -4,5 +4,14 @@ let nums2 = [-2, 0, -10, -44, 5, 3, 0, 3];
 let nums3 = [200, 5, 4, 10, 8, 5, -3.3, 4.4, 0];
 
 //Sort each array in ascending order.
+function sortArrayAscending(arr) {
+    arr.sort(function(a, b){return a-b});
+    return arr
+}
 
+function sortArrayDescending(arr) {
+    arr.sort(function(a, b){return b-a});
+    return arr
+}
+console.log(sortArrayDescending(nums3));
 //Sort each array in decending order.
